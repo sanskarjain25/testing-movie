@@ -1,0 +1,51 @@
+<div class="movie-details-container" *ngIf="movie">
+  <!-- Movie Header -->
+  <div class="movie-header">
+    <div class="poster">
+      <img
+        [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+        alt="{{ movie.title }}"
+      />
+    </div>
+    <div class="movie-info">
+      <h1>
+        {{ movie.title }}
+        <span class="release-year">({{ movie.release_date | date: 'yyyy' }})</span>
+      </h1>
+      <div class="user-score">
+        <span>{{ movie.vote_average * 10 | number: '1.0-0' }}%</span>
+        <p>User Score</p>
+      </div>
+      <p class="tagline">{{ movie.tagline }}</p>
+      <h2>Overview</h2>
+      <p class="overview">{{ movie.overview }}</p>
+      <div class="credits">
+        <p><strong>Director:</strong> {{ movie.director }}</p>
+        <p><strong>Writer:</strong> {{ movie.writer }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cast Section -->
+  <div class="cast-section">
+    <h2>Top Billed Cast</h2>
+    <div class="cast-grid">
+      <div class="cast-member" *ngFor="let cast of movie.cast | slice: 0:6">
+        <img
+          [src]="cast.profile_path ? 'https://image.tmdb.org/t/p/w185' + cast.profile_path : 'assets/default-profile.jpg'"
+          alt="{{ cast.name }}"
+        />
+        <p class="cast-name">{{ cast.name }}</p>
+        <p class="character">{{ cast.character }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Movie Info -->
+  <div class="additional-info">
+    <div><strong>Status:</strong> {{ movie.status }}</div>
+    <div><strong>Release Date:</strong> {{ movie.release_date }}</div>
+    <div><strong>Original Language:</strong> {{ movie.original_language }}</div>
+    <div><strong>Budget:</strong> ${{ movie.budget | number }}</div>
+  </div>
+</div>

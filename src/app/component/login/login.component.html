@@ -1,0 +1,53 @@
+<div class="page-container">
+    <h1 class="welcome-header">Welcome to Movie Hub</h1>
+    <div class="form-main">
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="form-container">
+        <h2 class="form-title">Sign In</h2>
+        <p class="form-subtitle">Please log in to continue</p>
+
+        <div id="user-data">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              class="custom-input"
+              id="username"
+              ngModel
+              name="name"
+              required
+              #name="ngModel"
+            />
+            <span class="help-block" *ngIf="!name.valid && name.touched">
+              Please enter a valid username!
+            </span>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              class="custom-input"
+              ngModel
+              name="password"
+              required
+              #password="ngModel"
+              minlength="5"
+            />
+            <span class="help-block" *ngIf="!password.valid && password.touched">
+              Please enter a password at least 5 characters long!
+            </span>
+          </div>
+          <button
+            class="custom-button btn btn-primary"
+            type="submit"
+            [disabled]="!f.valid"
+          >
+            Sign In
+          </button>
+        </div>
+      </form>
+      <button class="create-button btn btn-success" (click)="create()">
+        Create a new account
+      </button>
+    </div>
+</div>

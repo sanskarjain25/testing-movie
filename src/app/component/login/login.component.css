@@ -1,0 +1,105 @@
+.page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f6f9;
+  font-family: 'Arial', sans-serif;
+  padding: 2rem;
+  text-align: center;
+}
+
+.welcome-header {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ff7e5f, #feb47b, #86a8e7, #91eae4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2rem;
+}
+
+.form-main {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.form-subtitle {
+  font-size: 1rem;
+  color: #777;
+  margin-bottom: 2rem;
+}
+
+.custom-input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+  box-sizing: border-box; 
+}
+
+.custom-input:focus {
+  border-color: #2575fc;
+  outline: none;
+  box-shadow: 0 0 4px rgba(37, 117, 252, 0.5);
+}
+
+.custom-button,
+.create-button {
+  width: 100%;
+  max-width: 350px;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 0.5rem 0;
+}
+
+.custom-button {
+  background-color: #2575fc;
+}
+
+.custom-button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.custom-button:disabled {
+  background-color: #a0c4ff;
+  cursor: not-allowed;
+}
+
+.create-button {
+  background-color: #28a745;
+}
+
+.create-button:hover {
+  background-color: #218838;
+}
+
+.help-block {
+  color: red;
+  font-size: 0.85rem;
+  text-align: left;
+}

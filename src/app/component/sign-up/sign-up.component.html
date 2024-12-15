@@ -1,0 +1,96 @@
+<div class="form-div">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <div class="form-main">
+        <!-- Heading Section -->
+        <div class="form-heading">
+          <h2>Sign Up</h2>
+          <p>Create a new account and start your journey with us!</p>
+        </div>
+
+        <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+          <div id="user-data">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input
+                type="text"
+                class="custom-input"
+                id="username"
+                ngModel
+                name="name"
+                required
+                #name="ngModel"
+              />
+              <span class="help-block" *ngIf="!name.valid && name.touched">
+                Please enter a valid username!
+              </span>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="text"
+                class="custom-input"
+                id="email"
+                ngModel
+                name="email"
+                required
+                email
+                #email="ngModel"
+              />
+              <span class="help-block" *ngIf="!email.valid && email.touched">
+                Please enter a valid email!
+              </span>
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                class="custom-input"
+                ngModel
+                name="password"
+                required
+                #password="ngModel"
+                minlength="5"
+              />
+              <span
+                class="help-block"
+                *ngIf="!password.valid && password.touched"
+                >Please enter a password at least 5 characters long!</span
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="cpassword">Confirm Password</label>
+              <input
+                type="password"
+                id="cpassword"
+                class="custom-input"
+                ngModel
+                name="cpassword"
+                required
+                #cpassword="ngModel"
+                minlength="5"
+              />
+              <span
+                class="help-block"
+                *ngIf="!cpassword.valid && cpassword.touched && passMatch"
+                >Password is not matching</span
+              >
+            </div>
+
+            <button
+              class="custom-button btn btn-primary"
+              type="submit"
+              [disabled]="!f.valid"
+            >
+              Sign up
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

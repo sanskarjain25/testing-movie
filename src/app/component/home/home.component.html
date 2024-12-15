@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="header-container">
+    <!-- No Internet Message -->
+    <div *ngIf="!isOnline" class="no-internet">
+      <p>No Internet Connection</p>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="row">
+      <div class="col-12">
+        <div class="top-bar">
+          <div class="welcome-msg">
+            <p class="greeting">Welcome, {{ name | uppercase }}</p>
+            <p class="app-name">MovieHub</p>
+          </div>
+          <!-- Search Input -->
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Search movies..."
+            [(ngModel)]="searchTerm"
+            (input)="filterMovies()"
+          />
+          <button class="btn logout-btn" (click)="logout()">Log Out</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Movie Cards -->
+  <div class="row mt-4">
+    <div class="movie-grid">
+      <div *ngFor="let movie of filteredMovies" class="movie-card" (click)="openMovieDetails(movie.id)">
+        <!-- Movie Poster -->
+        <img
+          [src]="movie.poster_path ? 'https://image.tmdb.org/t/p/w500' + movie.poster_path : 'assets/default-movie.jpg'"
+          alt="{{ movie.title }}"
+          class="movie-poster"
+        />
+        <!-- Movie Details -->
+        <div class="movie-details">
+          <h3 class="movie-title">{{ movie.title }}</h3>
+          <p class="movie-overview">{{ movie.overview }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
